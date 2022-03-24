@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            border: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html{
+            font-size: 16px;
+            font-family: sans-serif;
+        }
+
+        .fight-stage{
+            width: 60%;
+            margin: 0 20%;
+            margin-top:2vh;
+            padding: 1em;
+            background-image: url(https://wallpaperaccess.com/full/124989.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            border-radius: 1em;
+        }
+        .stage-img{
+            
+            border-radius: 1em;
+            width: 80%;
+            
+            height: 60vh;
+            margin-left: 10%;
+            object-fit: cover;
+            object-position: 50%;
+        }
+        .description{
+            text-align: center;
+        }
+        .fight-text{
+            display: none;
+            position: absolute;
+        }
+        .controls{  
+            display: flex;
+            justify-content: space-between;
+            height: 23vh;
+        }
+        .player{
+            
+            background-color: rgb(199 40 40 / 59%);
+            border-radius: 1em;
+            padding: 1em;
+        }
+        .player-btn{
+            width: 4em;
+            height: 4em;
+            border-radius: 50%;
+            box-shadow: 0px 8px 0px black;
+            position: relative;
+        }
+        .red{
+            background-color: red;
+        }
+        .green{
+            background-color: green;
+        }
+        .joystick{
+            position: relative;
+            top: -50%;
+            background-color: #3931af;
+            
+            box-shadow: 0px 8px 0px black;
+        }
+        .bat{
+            
+    content: "";
+    position: absolute;
+    width: 2em;
+    height: 4em;
+    background-color: red;
+    top: -116%;
+    left: 27%;
+    border-radius: 2em;
+            z-index: 1;
+        }
+        .pipe{
+            content:'';
+            position: absolute;
+
+    width: 1em;
+    height: 4em;
+    top: -40%;
+    left: 39%;
+    background-color: black;            
+    border-radius: 0.2em;
+        }
+
+
+
+        .move-bat-right{
+            
+    transform: rotate(
+35deg
+);
+    left: 90%;
+    top: -100%;
+
+        }
+        .move-pipe-right{
+            
+    transform: rotate(
+30deg
+);
+    left: 65%;
+        }
+        .move-bat-left{
+            
+    transform: rotate( 
+-30deg
+ );
+    left: -35%;
+    top: -95%;
+        }
+        .move-pipe-left{
+            
+    transform: rotate( 
+-30deg
+ );
+    left: 13%;
+        }
+
+
+
+        .supreme-victory{
+            width: 60%;
+            height: 60vh;
+            margin: 0 20%;
+            margin-top:2vh;
+            padding: 1em;
+            position: relative;
+            font-size: 150%;
+
+        }
+        .character{
+            width: inherit;
+            height: inherit;
+            margin: 0 20%;
+            position: absolute;
+        }
+        .supreme-victory p {
+            position: absolute;
+            z-index: 1;
+            color: white;
+          
+            -webkit-background-clip: text;  
+            -webkit-text-fill-color: transparent;  
+            top: 50%;
+            opacity: 0;
+            
+            pointer-events: none; 
+            
+            font-weight: bolder;
+            font-size: 135%;
+        }
+        #supreme{
+            left: -1.5%;
+            background-image: linear-gradient(#f5fffe, #bfd8fe);
+            animation: supreme 1s ease-in-out 1s 1 forwards;
+        }
+        #victory{
+            right: -5%;
+            background-image: linear-gradient(to right, #f0ffff, #87a2f2);
+            animation: victory 1s ease-in-out 1s 1 forwards;
+        
+        }
+    @keyframes supreme{
+        to{            
+            left: 40%;
+            opacity: 1;  
+        }
+    }
+    @keyframes victory {
+        to{
+            right: 25%;
+            opacity: 1;
+        }
+        
+    }
+    </style>
+</head>
+<body>
+    <div class="description">
+        <h2>How does the 2D fighting games stages actually works?</h2>
+        <p class="explanation">The stage it is an image that moves with the fighter movement</p>
+    </div>
+    <section class="fight-stage">
+        <h3 class="fight-text">Fight!</h3>
+        <img class="stage-img" src="./KillerInstinct-stage.png" id="stage-img" alt="">
+        <div class="controls">
+            <div class="player">
+                <button class="player-btn red"></button>
+                <button class="player-btn"></button>
+                <button class="player-btn green"></button>
+                
+                &nbsp;
+                <br>
+                
+                &nbsp;
+                <button class="player-btn red"></button>
+                <button class="player-btn"></button>
+                <button class="player-btn green"></button>
+                <button class="player-btn joystick">
+                    <div class="bat"></div>
+                    <div class="pipe"></div>
+                </button>
+            </div>
+            <div class="player">
+                
+                <button class="player-btn red"></button>
+                <button class="player-btn"></button>
+                <button class="player-btn green"></button>
+                
+                &nbsp;
+                <br>
+                &nbsp;
+                <button class="player-btn red"></button>
+                <button class="player-btn"></button>
+                <button class="player-btn green"></button>
+                
+                <button class="player-btn joystick">
+                    <div class="bat"></div>
+                    <div class="pipe"></div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+<section class="supreme-victory">
+    <p id="supreme">Supreme</p>
+    <p id="victory">Victory</p>
+    <img src="https://static.wikia.nocookie.net/killerinstinct/images/c/cf/Cinder_KI1.jpg/revision/latest/scale-to-width-down/250?cb=20130613081548" class="character" alt="">
+</section>
+
+
+
+<br><br><br>
+
+
+
+
+
+
+
+
+
+
+    <script>
+        const stageImg = document.getElementById("stage-img");
+        stageImg.style.objectPosition="50%";
+        
+        const bat = document.querySelector(".bat"),
+            pipe = document.querySelector(".pipe");
+
+        let objectPosition = 50;
+        moveStage = ()=>{
+            document.addEventListener("keydown",e=>{
+                
+                if(e.keyCode===39){
+                    
+                    objectPosition+=2;
+                    if(objectPosition>100){
+                        objectPosition=99
+                        return;
+                    }
+                }else if(e.keyCode===37){
+                    objectPosition-=2
+                    if(objectPosition<1){
+                        objectPosition=1;
+                        return;
+                    }
+                
+                }
+                
+                stageImg.style.objectPosition=`${objectPosition}% center`;
+            })
+        },
+        moveJoystick=()=>{
+            document.addEventListener("keydown",e=>{
+                if(e.keyCode===39){
+                    bat.classList.add("move-bat-right");
+                    pipe.classList.add("move-pipe-right");
+                }else if(e.keyCode===37){
+                    
+                    bat.classList.add("move-bat-left");
+                    pipe.classList.add("move-pipe-left");
+                }
+            })
+        },
+        JoystickWithNoMovement=()=>{
+            document.addEventListener("keyup",e=>{
+                
+                bat.classList.remove("move-bat-right");
+                pipe.classList.remove("move-pipe-right");
+                bat.classList.remove("move-bat-left");
+                pipe.classList.remove("move-pipe-left");
+            })
+        };
+        document.addEventListener("DOMContentLoaded",e=>{
+            moveStage();
+            moveJoystick();
+            JoystickWithNoMovement();
+            scroll(0,document.documentElement.scrollHeight);
+        });
+    </script>
+</body>
+</html>
